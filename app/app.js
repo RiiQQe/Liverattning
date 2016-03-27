@@ -8,18 +8,22 @@
 
 
 	var games = [{
+		score: '0-3',
 		teamhome: 'Liverpool FC',
 		teamaway: 'Arsenal FC',
-		score: '0-3',
+		teamawaywinner:true,
+		teamhomewinner:false,
 		goalscorer: [
 			'Ramsey',
 			'Giroud',
 			'Sanchez'
 		]
 	}, {
+		score: '1-1',
 		teamhome: 'Manchester City FC',
 		teamaway: 'Manchester United FC',
-		score: '1-1',
+		teamawaywinner:true,
+		teamhomewinner:false,
 		goalscorer: [
 			'Rooney',
 			'Aguero'

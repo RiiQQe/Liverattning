@@ -2,17 +2,19 @@
 <html ng-app="choosen">
 <head>
 	<script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+	<style type="text/css" src="css/style.css"></style>
 	<title>Liverattning</title>
 </head>
 
 <body>
-	<div ng-controller="choosenCtrl as ctrl">
-		<h1>Liverättning</h1>
-		<div ng-repeat="game in ctrl.games">
-			{{game.teamhome}} {{game.score}} {{game.teamaway}}
-		</div>
-	</div>
+	<h1>Liverättning</h1>
+	<table ng-controller="choosenCtrl as ctrl" style="border: solid;">
+		<tr ng-repeat="game in ctrl.games">
+			<td> {{game.teamhome}} </td> 
+			<td> {{game.score}} </td>  
+			<td> {{game.teamaway}} </td>
+		</tr>
+	</table>
 	<script type="text/javascript" src="app/app.js"></script>
-
 </body>
 </html>
