@@ -1,47 +1,21 @@
-
-
 (function(){
-	var app = angular.module('choosen', []);
+	var app = angular.module('choosen', ['panel']);
 	app.controller('choosenCtrl', function(){
 		this.games = games;
 	});
 
-	app.controller('stryktipsCtrl', function(){
-		this.games = stryket;
-	});
+	app.controller('stryktipsCtrl', ['$http', function($http){
+		//this.games = stryket;
+		var stryk = this;
 
-	/*app.controller('optionCtrl', function(){
+		$http.get('http://api.texttv.nu/api/get/551?app=apiexempelsidan').success(function(data){
+			console.log(data);
+			console.log(JSON.parse(data));
+		})
 
-		this.tab = 1;
-		this.tabs = tabs;
 
-		this.selectTab = function(setTab){
-			this.tab = setTab;
-		}
-		this.isSelected = function(checkTab){
-			return this.tab === checkTab;
-		}
 
-	});*/
-
-	app.directive('panelTabs', function(){
-		return {
-			restrict: 'E',
-			templateUrl: 'panel-tabs.html',
-			controller: function(){
-				this.tab = 1;
-				this.tabs = tabs;
-
-				this.selectTab = function(setTab){
-					this.tab = setTab;
-				}
-				this.isSelected = function(checkTab){
-					return this.tab === checkTab;
-				}
-			},
-			controllerAs:'options'
-		};
-	})
+	}]);
 
 	var tabs = [{name:'Choose yourself'}, { name:'Stryktipset' }, { name:'Europatipset' }, { name:'Topptipset'}];
 
