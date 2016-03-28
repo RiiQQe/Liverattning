@@ -2,14 +2,38 @@
 <html ng-app="choosen">
 <head>
 	<script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+	
+	<!-- Twitter Bootstrap -->
+    <!--<link href="node_modules/twitter-bootstrap/docs/assets/js/bootstrap.min.css" rel="stylesheet">-->
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- My own style -->
 	<style type="text/css" src="css/style.css"></style>
 	<title>Liverattning</title>
 </head>
 
 <body>
 
-	<div ng-controller="typeCtrl as ctrl">
-		<h1>Liverättning</h1>
+	<section class="tab" ng-controller="optionCtrl as options">
+		<ul class="nav nav-pills">
+			<li ng-class="{ active:options.isSelected(1) }"> 
+				<a ng-click="options.selectTab(1)"> Choose yourself </a> 
+			</li>
+			<li ng-class="{ active:options.isSelected(2) }"> 
+				<a ng-click="options.selectTab(2)"> Stryktipset </a> 
+			</li>
+			<li ng-class="{ active:options.isSelected(3) }"> 
+				<a ng-click="options.selectTab(3)"> Europatipset </a> 
+			</li>
+			<li ng-class="{ active:options.isSelected(4) }"> 
+				<a ng-click="options.selectTab(4)"> Topptipset </a> 
+			</li>
+		</ul>
+
+	<div ng-show="options.isSelected(1)">
+		<h1>Choose yourself</h1>
 		<table ng-controller="choosenCtrl as ctrl" style="border: solid;">
 			<tr ng-repeat="game in ctrl.games">
 				<td> {{game.teamhome}} </td> 
@@ -18,6 +42,19 @@
 			</tr>
 		</table>
 	</div> 
+
+	<div ng-show="options.isSelected(2)">
+		<h1>Stryktipset</h1>
+		<table ng-controller="stryktipsCtrl as ctrl" style="border: solid;">
+			<tr ng-repeat="game in ctrl.games">
+				<td> {{game.teamhome}} </td> 
+				<td> {{game.score}} </td>  
+				<td> {{game.teamaway}} </td>
+			</tr>
+		</table>
+	</div> 
+
+	</section>
 
 	<script type="text/javascript" src="app/app.js"></script>
 </body>
