@@ -8,23 +8,12 @@
 		var stryk = this;
 
 		/*Should be something to update this*/
-
 		$http.get('scraping/stryk.json').success(function(data){
 			console.log(data);
 
 			stryk.games = data;
 			
 		});
-
-		/*$http.get('http://api.texttv.nu/api/get/551?app=testing').success(function(data){
-		
-			console.log(data[0].content);
-			stryk.games = data[0].content;
-		
-		});*/
-
-
-
 	}]);
 
 	var tabs = [{name:'Choose yourself'}, { name:'Stryktipset' }, { name:'Europatipset' }, { name:'Topptipset'}];

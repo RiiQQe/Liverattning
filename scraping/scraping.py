@@ -1,7 +1,6 @@
 from lxml import html
 import requests
 import re
-#import csv
 import json
 
 class Game:
@@ -46,7 +45,7 @@ test = True
 while index < len(aList) and test :
 
 	#this should be done in another way probably
-	temp = "";
+	temp = ""
 	gamenr = ''
 	hometeam = ''
 	awayteam = ''
@@ -67,6 +66,7 @@ while index < len(aList) and test :
 			hometeam = aList[index]
 			index = index + 1
 			awayteam = aList[index]
+			awayteam = awayteam[1:]
 		
 		else :
 			twoTeams = aList[index].split('-')
@@ -86,17 +86,6 @@ while index < len(aList) and test :
 			test = False
 
 	index = index + 1
-
-index = 0
-
-#f = open('stryk.csv', 'wt')
-#try:
-#    writer = csv.writer(f)
-#    writer.writerow( ('gamenr', 'hometeam', 'awayteam', 'score', 'winner') )
-#    for i in range(13):
-#        writer.writerow( (newList[i].gamenr, newList[i].hometeam,  newList[i].awayteam,  newList[i].score,  newList[i].winner) )
-#finally:
-#    f.close()
 
 with open("stryk.json", "w") as outfile:
 	jsonF = json.dump([ob.__dict__ for ob in newList], outfile)
