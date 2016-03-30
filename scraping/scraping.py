@@ -93,9 +93,14 @@ while index < len(aList) and test :
 
 index = 0
 
-with open('stryk.csv', 'w') as myfile:
-    wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
-    wr.writerow(newList)
+f = open('stryk.csv', 'wt')
+try:
+    writer = csv.writer(f)
+    writer.writerow( ('gamenr', 'hometeam', 'awayteam', 'score', 'winner') )
+    for i in range(13):
+        writer.writerow( (newList[i].gamenr, newList[i].hometeam,  newList[i].awayteam,  newList[i].score,  newList[i].winner) )
+finally:
+    f.close()
 
 
 
