@@ -1,6 +1,19 @@
 from lxml import html
 import requests
+import re
 
+class Game:
+	'common base class for all games'
+	gamecount = 0
+
+	def __init__ (self, gamenr, hometeam, awayteam, winner, score):
+		self.gamenr = gamenr
+		self.hometeam = hometeam
+		self.awayteam = awayteam
+		self.winner = winner
+		self.score = score
+		Game.gamecount += 1		
+		
 
 page = 	requests.get('http://www.svt.se/svttext/tvu/pages/551.html')
 
@@ -17,20 +30,73 @@ aList = [];
 
 #removing all whitespaces
 for game in games :
-	if game == ' ':
-		print("removing");
-	
-	else : 	
+	if game != ' ':
 		game = game.strip()
 		aList.append(game) 
+		#print(game)
+	
+
+counter = 0
+newList = []
+
+index = 0
+test = True
+while index < len(aList) & test:
+
+	#this should be done in another way probably
+	temp = "";
+	gamenr = ''
+	hometeam = ''
+	awayteam = ''
+	winner = ''
+	score = ''
+	tester = ''
+
+	if index + 10 > len(aList): 
+		print("")
+	elif aList[index].rfind('.') != -1:
+		temp = aList[index]
+		gamenr = temp
+		tester = temp.replace('.', '')
+		int(float(tester))
+
+		index = index + 1
+		if aList[index].rfind('-') == -1 : 
+			temp = temp + aList[index]
+			hometeam = aList[index]
+			index = index + 1
+			temp = temp + aList[index]
+			awayteam = aList[index]
+		
+		else :
+			temp = temp + aList[index]
+			kalle = aList[index].split('-')
+			hometeam = kalle[0]
+			awayteam = kalle[1]
+
+		index = index + 1
+		temp = temp + aList[index]
+		score = aList[index]
+		index = index + 1
+		temp = temp + aList[index]
+		winner = aList[index]
+		
+		print('gamenr: ' + gamenr + ' hometeam ' + hometeam + ' awayteam ' + awayteam + ' score ' + score + ' winner ' + winner)
+
+		newList.append(temp)
+
+		if tester != 13 : test = False
+
+	index = index + 1
+
+print(newList)
+
+i = 0
+
 	
 
 
-for index in range(len(aList)):
-   print(aList[index])
 
 
 
-#print(aList)
-#print(games);
-	
+
