@@ -5,6 +5,7 @@ bin-release/
 
 # Other files and folders
 .settings/
+*.whl
 
 #API folders
 node_modules/
