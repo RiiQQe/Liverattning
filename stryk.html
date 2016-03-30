@@ -1,8 +1,37 @@
 <h1>Stryktipset</h1>
-<table ng-controller="stryktipsCtrl as ctrl" style="border: solid;">
-	<tr ng-repeat="game in ctrl.games">
-		<td> {{game.hometeam}} </td> 
-		<td> {{game.score}} </td>  
-		<td> {{game.awayteam}} </td>
-	</tr>
-</table>
+<div>
+	<table ng-controller="stryktipsCtrl as ctrl" style="border: solid;">
+		<tr ng-repeat="game in ctrl.games">
+			<td> {{game.hometeam}} </td>
+			<td> {{game.score}} </td>
+			<td> {{game.awayteam}} </td>
+
+			<td style="color: white;"> XXX  </td>
+			<td style="color: white;"> XXX  </td>
+			<td style="color: white;"> XXX  </td>
+
+			<section class="tab">
+				<ul class="nav nav-pills">
+					<li ng-class="{ active:stryketCtrl.isSelected(1) }"> 
+						<a ng-click="stryketCtrl.selectTab(1)"> 1 </a> 
+					</li>
+					<li ng-class="{ active:stryketCtrl.isSelected(2) }"> 
+						<a ng-click="stryketCtrl.selectTab(2)"> X </a> 
+					</li>
+					<li ng-class="{ active:stryketCtrl.isSelected(3) }"> 
+						<a ng-click="stryketCtrl.selectTab(3)"> 2 </a> 
+					</li>
+				</ul>
+			</section>
+
+		</tr>
+	</table>
+
+	<table ng-controller="stryktipsCtrl as ctrl" style="float:right;">
+		<tr ng-repeat="game in ctrl.games">
+			<td style="border: solid;"> 1</td>
+			<td style="border: solid;"> X</td>
+			<td style="border: solid;"> 2</td>
+		</tr>
+	</table>
+</div>
