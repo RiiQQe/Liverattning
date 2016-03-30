@@ -1,6 +1,7 @@
 from lxml import html
 import requests
 import re
+import csv
 
 class Game:
 	'common base class for all games'
@@ -19,12 +20,12 @@ page = 	requests.get('http://www.svt.se/svttext/tvu/pages/551.html')
 
 tree = html.fromstring(page.content)
 
-print(tree)
+#print(tree)
 
 
 games = tree.xpath('//span[@class="C"]/text()');
 
-print(games);
+#print(games);
 
 aList = [];
 
@@ -41,7 +42,7 @@ newList = []
 
 index = 0
 test = True
-while index < len(aList) & test:
+while index < len(aList) and test :
 
 	#this should be done in another way probably
 	temp = "";
@@ -58,7 +59,7 @@ while index < len(aList) & test:
 		temp = aList[index]
 		gamenr = temp
 		tester = temp.replace('.', '')
-		int(float(tester))
+	
 
 		index = index + 1
 		if aList[index].rfind('-') == -1 : 
@@ -80,20 +81,21 @@ while index < len(aList) & test:
 		index = index + 1
 		temp = temp + aList[index]
 		winner = aList[index]
-		
-		print('gamenr: ' + gamenr + ' hometeam ' + hometeam + ' awayteam ' + awayteam + ' score ' + score + ' winner ' + winner)
+				
+		game = Game(gamenr, hometeam, awayteam, winner, score)
 
-		newList.append(temp)
+		newList.append(game)
 
-		if tester != 13 : test = False
+		if int(float(tester)) == int(13) : 
+			test = False
 
 	index = index + 1
 
-print(newList)
+index = 0
 
-i = 0
-
-	
+with open('stryk.csv', 'w') as myfile:
+    wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
+    wr.writerow(newList)
 
 
 
