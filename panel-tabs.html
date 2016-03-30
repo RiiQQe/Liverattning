@@ -14,26 +14,7 @@
 			</li>
 		</ul>
 
-	<div ng-show="options.isSelected(1)">
-		<h1>Choose yourself</h1>
-		<table ng-controller="choosenCtrl as ctrl" style="border: solid;">
-			<tr ng-repeat="game in ctrl.games">
-				<td> {{game.teamhome}} </td> 
-				<td> {{game.score}} </td>  
-				<td> {{game.teamaway}} </td>
-			</tr>
-		</table>
-	</div> 
+	<ownchoice ng-show="options.isSelected(1)"></ownchoice>
 
-	<div ng-show="options.isSelected(2)">
-		<h1>Stryktipset</h1>
-		<table ng-controller="stryktipsCtrl as ctrl" style="border: solid;">
-			<tr ng-repeat="game in ctrl.games">
-				<td> {{game.hometeam}} </td> 
-				<td> {{game.score}} </td>  
-				<td> {{game.awayteam}} </td>
-			</tr>
-		</table>
-	</div> 
-
+	<stryk ng-show="options.isSelected(2)"></stryk>
 </section>

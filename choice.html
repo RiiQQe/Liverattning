@@ -1,0 +1,8 @@
+<h1>Choose yourself</h1>
+<table ng-controller="choosenCtrl as ctrl" style="border: solid;">
+	<tr ng-repeat="game in ctrl.games">
+		<td> {{game.teamhome}} </td> 
+		<td> {{game.score}} </td>  
+		<td> {{game.teamaway}} </td>
+	</tr>
+</table>

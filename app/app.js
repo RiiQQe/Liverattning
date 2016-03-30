@@ -1,5 +1,5 @@
 (function(){
-	var app = angular.module('choosen', ['panel']);
+	var app = angular.module('choosen', ['panel', 'choice', 'stryket']);
 	app.controller('choosenCtrl', function(){
 		this.games = games;
 	});
@@ -9,10 +9,7 @@
 
 		/*Should be something to update this*/
 		$http.get('scraping/stryk.json').success(function(data){
-			console.log(data);
-
 			stryk.games = data;
-			
 		});
 	}]);
 
