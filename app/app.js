@@ -1,28 +1,20 @@
-
-
 (function(){
-	var app = angular.module('choosen', []);
+	var app = angular.module('choosen', ['panel']);
 	app.controller('choosenCtrl', function(){
 		this.games = games;
 	});
 
-	app.controller('stryktipsCtrl', function(){
-		this.games = stryket;
-	});
+	app.controller('stryktipsCtrl', ['$http', function($http){
+		var stryk = this;
 
-	app.controller('optionCtrl', function(){
+		/*Should be something to update this*/
+		$http.get('scraping/stryk.json').success(function(data){
+			console.log(data);
 
-		this.tab = 1;
-		this.tabs = tabs;
-
-		this.selectTab = function(setTab){
-			this.tab = setTab;
-		}
-		this.isSelected = function(checkTab){
-			return this.tab === checkTab;
-		}
-
-	});
+			stryk.games = data;
+			
+		});
+	}]);
 
 	var tabs = [{name:'Choose yourself'}, { name:'Stryktipset' }, { name:'Europatipset' }, { name:'Topptipset'}];
 

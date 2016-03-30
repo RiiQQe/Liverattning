@@ -16,46 +16,9 @@
 
 <body>
 
-	<section class="tab" ng-controller="optionCtrl as options">
-		<ul class="nav nav-pills">
-			<li ng-class="{ active:options.isSelected(1) }"> 
-				<a ng-click="options.selectTab(1)"> Choose yourself </a> 
-			</li>
-			<li ng-class="{ active:options.isSelected(2) }"> 
-				<a ng-click="options.selectTab(2)"> Stryktipset </a> 
-			</li>
-			<li ng-class="{ active:options.isSelected(3) }"> 
-				<a ng-click="options.selectTab(3)"> Europatipset </a> 
-			</li>
-			<li ng-class="{ active:options.isSelected(4) }"> 
-				<a ng-click="options.selectTab(4)"> Topptipset </a> 
-			</li>
-		</ul>
-
-	<div ng-show="options.isSelected(1)">
-		<h1>Choose yourself</h1>
-		<table ng-controller="choosenCtrl as ctrl" style="border: solid;">
-			<tr ng-repeat="game in ctrl.games">
-				<td> {{game.teamhome}} </td> 
-				<td> {{game.score}} </td>  
-				<td> {{game.teamaway}} </td>
-			</tr>
-		</table>
-	</div> 
-
-	<div ng-show="options.isSelected(2)">
-		<h1>Stryktipset</h1>
-		<table ng-controller="stryktipsCtrl as ctrl" style="border: solid;">
-			<tr ng-repeat="game in ctrl.games">
-				<td> {{game.teamhome}} </td> 
-				<td> {{game.score}} </td>  
-				<td> {{game.teamaway}} </td>
-			</tr>
-		</table>
-	</div> 
-
-	</section>
+	<panel-tabs></panel-tabs>
 
 	<script type="text/javascript" src="app/app.js"></script>
+	<script type="text/javascript" src="app/panel.js"></script>
 </body>
 </html>
