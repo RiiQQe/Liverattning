@@ -75,6 +75,7 @@ while index < len(aList) and test :
 			awayteam = twoTeams[1]
 
 		index = index + 1
+		#TODO: this should be split up
 		score = aList[index]
 		index = index + 1
 		winner = aList[index]

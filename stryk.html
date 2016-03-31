@@ -5,33 +5,19 @@
 			<td> {{game.hometeam}} </td>
 			<td> {{game.score}} </td>
 			<td> {{game.awayteam}} </td>
+			<td> {{game.winner}} </td>
 
 			<td style="color: white;"> XXX  </td>
 			<td style="color: white;"> XXX  </td>
 			<td style="color: white;"> XXX  </td>
 
-			<section class="tab">
-				<ul class="nav nav-pills">
-					<li ng-class="{ active:stryketCtrl.isSelected(1) }"> 
-						<a ng-click="stryketCtrl.selectTab(1)"> 1 </a> 
-					</li>
-					<li ng-class="{ active:stryketCtrl.isSelected(2) }"> 
-						<a ng-click="stryketCtrl.selectTab(2)"> X </a> 
-					</li>
-					<li ng-class="{ active:stryketCtrl.isSelected(3) }"> 
-						<a ng-click="stryketCtrl.selectTab(3)"> 2 </a> 
-					</li>
-				</ul>
-			</section>
+
+			<td ng-class="{green:game.winner == 1}"> 1 </td>
+			<td ng-class="{green:game.winner == 'X'}"> X </td>
+			<td ng-class="{green:game.winner == 2}"> 2 </td>
 
 		</tr>
 	</table>
 
-	<table ng-controller="stryktipsCtrl as ctrl" style="float:right;">
-		<tr ng-repeat="game in ctrl.games">
-			<td style="border: solid;"> 1</td>
-			<td style="border: solid;"> X</td>
-			<td style="border: solid;"> 2</td>
-		</tr>
-	</table>
+	<p class="green">KALLE !!!! ANKA</p>
 </div>
