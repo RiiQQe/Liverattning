@@ -4,10 +4,10 @@
 		<tr ng-repeat="game in stryketCtrl.games">
 			<td> {{game.hometeam}} </td>
 			<td> {{game.score}} </td>
-			<td> {{game.awayteam}} </td>
-			<td width="50px"> {{game.winner}} </td>
+			<td style="border-right: 1px;"> {{game.awayteam}} </td>
+			<td width="50px" style="border-right: 1px"> {{game.winner}} </td>
 
-			<td height="50px" width="50px" style="text-align: center;" ng-class="{extraborder:game.winner == 1}"> 1 </td> <!--With two colors: {extraborder:game.winner == 1 , red:game.winner != 1}-->
+			<td height="50px" width="50px" style="text-align: center;" ng-class="{extraborder:game.winner == 1}"> 1 </td> 
 			<td height="50px" width="50px" style="text-align: center;" ng-class="{extraborder:game.winner == 'X'}"> X </td>
 			<td height="50px" width="50px" style="text-align: center;" ng-class="{extraborder:game.winner == 2}"> 2 </td>
 
