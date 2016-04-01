@@ -21,10 +21,6 @@
 					});
 				});
 				
-				this.selectTab = function(setTab){
-					this.tab = setTab;
-				}
-
 				this.isSelected = function(val, gamenr){
 
 					var found = $filter('filter')(this.vals, {gamenr:gamenr}, true);
