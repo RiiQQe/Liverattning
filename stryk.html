@@ -16,9 +16,9 @@
 	<table id="second" class="fillIn" style="float:right;">
 		<tr ng-repeat="game in stryketCtrl.games">
 
-			<td width="50px" height="50px" style="text-align: center; border:solid;" > <a>1</a> </td>
-			<td width="50px" height="50px" style="text-align: center; border:solid;" > <a>X</a> </td>
-			<td width="50px" height="50px" style="text-align: center; border:solid;" > <a>2</a> </td>
+			<td ng-class="{green:stryketCtrl.isSelected('1', game.gamenr)}" width="50px" height="50px" style="text-align: center; border:solid;" ng-click="stryketCtrl.setTab('1', game.gamenr)"> <a>1</a> </td>
+			<td ng-class="{green:stryketCtrl.isSelected('X', game.gamenr)}" width="50px" height="50px" style="text-align: center; border:solid;" ng-click="stryketCtrl.setTab('X', game.gamenr)"> <a>X</a> </td>
+			<td ng-class="{green:stryketCtrl.isSelected('2', game.gamenr)}" width="50px" height="50px" style="text-align: center; border:solid;" ng-click="stryketCtrl.setTab('2', game.gamenr)"> <a>2</a> </td>
 
 		</tr>
 	</table>
