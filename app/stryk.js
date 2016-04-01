@@ -24,15 +24,26 @@
 				this.isSelected = function(val, gamenr){
 
 					var found = $filter('filter')(this.vals, {gamenr:gamenr}, true);
+					var found2 = $filter('filter')(this.games, {gamenr:gamenr}, true);
 
-					return found[0][val];
-				}
+					console.log(found2);
+
+					if(found[0][val] && found2[0].winner == val) return 'green';
+					else return 'red';
+				};
 
 				this.setTab = function(val, gamenr){
 					var found = $filter('filter')(this.vals, {gamenr:gamenr}, true);
 
 					found[0][val] = !found[0][val];
-				}
+				};
+
+				this.redOrGreen = function(val, gamenr){
+					var found = $filter('filter')(this.vals, {gamenr:gamenr}, true);
+
+					if(found[0][val]) return 'green';
+					else return 'red';
+				};
 			},
 			controllerAs: 'stryketCtrl'
 		};

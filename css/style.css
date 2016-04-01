@@ -32,4 +32,5 @@ td a {
 
 .extraborder {
 	border: solid 2px;
+	background-color: gray;
 }
