@@ -29,3 +29,7 @@ td a {
     display:block;
     width:100%;
 }
+
+.extraborder {
+	border: solid 2px;
+}
