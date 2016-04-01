@@ -4,15 +4,6 @@
 		this.games = games;
 	});
 
-	app.controller('stryktipsCtrl', ['$http', function($http){
-		var stryk = this;
-
-		/*Should be something to update this*/
-		$http.get('scraping/stryk.json').success(function(data){
-			stryk.games = data;
-		});
-	}]);
-
 	var tabs = [{name:'Choose yourself'}, { name:'Stryktipset' }, { name:'Europatipset' }, { name:'Topptipset'}];
 
 	var stryket = [{
