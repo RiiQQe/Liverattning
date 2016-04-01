@@ -35,12 +35,8 @@
 				this.setTab = function(val, gamenr){
 					var found = $filter('filter')(this.vals, {gamenr:gamenr}, true);
 
-					if(found[0][val]) found[0][val] = false;
-					else found[0][val] = true;
+					found[0][val] = !found[0][val];
 				}
-
-
-
 			},
 			controllerAs: 'stryketCtrl'
 		};
