@@ -9,6 +9,7 @@
 			controller: function(){
 				//this.vals = [{'1':false, 'X':false, '2':false}];
 				//this.vals = [];
+				this.nrOfCorr = 0;
 				var stryk = this;
 				stryk.vals = [];
 
@@ -26,27 +27,30 @@
 					var found = $filter('filter')(this.vals, {gamenr:gamenr}, true);
 					var found2 = $filter('filter')(this.games, {gamenr:gamenr}, true);
 
-					console.log(found2);
-
-					if(found[0][val] && found2[0].winner == val) return 'green';
-					else return 'red';
+					if(found[0][val] && found2[0].winner == val) {
+						return 'green';
+					}
+					
+					else if(found[0][val]) return 'red';
+					else return 'white';
 				};
 
 				this.setTab = function(val, gamenr){
+					console.log("here");
 					var found = $filter('filter')(this.vals, {gamenr:gamenr}, true);
+					var found2 = $filter('filter')(this.games, {gamenr:gamenr}, true);
 
 					found[0][val] = !found[0][val];
-				};
 
-				this.redOrGreen = function(val, gamenr){
-					var found = $filter('filter')(this.vals, {gamenr:gamenr}, true);
-
-					if(found[0][val]) return 'green';
-					else return 'red';
+					if(found[0][val] && found2[0].winner == val) {
+						this.nrOfCorr++;
+					}else if(!found[0][val] && found2[0].winner == val)this.nrOfCorr--;
 				};
 			},
 			controllerAs: 'stryketCtrl'
 		};
 	}]);
+
+
 
 })();

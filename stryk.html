@@ -15,12 +15,11 @@
 	</table>
 	<table id="second" class="fillIn" style="float:right;">
 		<tr ng-repeat="game in stryketCtrl.games">
-
 			<td ng-class="stryketCtrl.isSelected('1', game.gamenr)" width="50px" height="50px" style="text-align: center; border:solid;" ng-click="stryketCtrl.setTab('1', game.gamenr)"> 1 </td>
 			<td ng-class="stryketCtrl.isSelected('X', game.gamenr)" width="50px" height="50px" style="text-align: center; border:solid;" ng-click="stryketCtrl.setTab('X', game.gamenr)"> X </td>
 			<td ng-class="stryketCtrl.isSelected('2', game.gamenr)" width="50px" height="50px" style="text-align: center; border:solid;" ng-click="stryketCtrl.setTab('2', game.gamenr)"> 2 </td>
-
 		</tr>
 	</table>
+	<p>Number Corr = {{stryketCtrl.nrOfCorr}}</p>
 
 </div>
