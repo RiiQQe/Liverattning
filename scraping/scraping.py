@@ -23,10 +23,12 @@ page = requests.get('http://www.svt.se/svttext/tv/pages/551.html')
 
 tree = html.fromstring(page.content)
 
+#print(page.content)
+
 #TODO: change to from "C" to "G" for Europa
 games = tree.xpath('//span[@class="C"]/text()');
 
-print(games);
+#print(games);
 
 aList = [];
 
@@ -35,8 +37,7 @@ for game in games :
 	if game != ' ':
 		game = game.strip()
 		aList.append(game) 
-		#print(game)
-	
+
 
 counter = 0
 newList = []
